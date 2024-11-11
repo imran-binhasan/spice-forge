@@ -8,4 +8,6 @@ router.get('/', async(req:Request, res:Response) => {
     res.json(result);
 })
 
+
+
 export default router;
