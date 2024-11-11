@@ -12,7 +12,7 @@ const Header = () => {
             <NavLink to={'/menu'}>MENU</NavLink>
             <NavLink to={'/shop/salad'}>SHOP</NavLink>
             <NavLink to={'/contact'}>CONTACT</NavLink>
-            <NavLink to={'/login'}>LOGIN</NavLink>
+            <NavLink to={'/auth/login'}>LOGIN</NavLink>
         </>
     return (
         <header className="fixed z-50 max-w-7xl bg-gradient-to-t from-black/20 to bg-black/20 backdrop-blur-sm w-full mx-auto text-white">
