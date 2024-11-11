@@ -22,8 +22,7 @@ const verifyToken = (req:Request, res:Response, next:NextFunction) => {
   } catch (error) {
     res.status(401).send({ message: 'Forbidden access!' });
   }
-
-    
+   
 }
 
 export default verifyToken;
