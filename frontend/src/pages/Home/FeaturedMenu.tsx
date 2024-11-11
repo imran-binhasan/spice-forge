@@ -13,7 +13,7 @@ const FeaturedMenu = () => {
         <div className="my-10">
             <SectionTitle title="CHEF'S SPECIAL" subTitle='SHOULD TRY'/>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                {menus?.map((menu) => <MenuCard menu={menu} key={menu._id}/>)}
+                {menus?.map((eachMenu) => <MenuCard eachMenu={eachMenu} key={eachMenu._id}/>)}
             </div>
         </div>
     );
