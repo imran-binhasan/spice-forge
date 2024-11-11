@@ -3,7 +3,9 @@ import { BiMenuAltRight } from "react-icons/bi";
 import { FaTimes } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
+
 const Header = () => {
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const navlinks =
