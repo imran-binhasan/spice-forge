@@ -15,7 +15,7 @@ const Header = () => {
             <NavLink to={'/login'}>LOGIN</NavLink>
         </>
     return (
-        <header className="fixed z-50 max-w-7xl w-full mx-auto bg-transparent text-white">
+        <header className="fixed z-50 max-w-7xl bg-black bg-opacity-40 backdrop-blur-sm w-full mx-auto bg-transparent text-white">
             <div className="flex justify-between items-center border py-2 md:py-4 md:px-6 px-2">
                 <div>
                     <h3>SPICE FORGE</h3>

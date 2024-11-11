@@ -5,7 +5,11 @@ export default {
     './src/**/*.{js,ts,jsx,tsx}' // Tailwind will scan these files
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'best-menu': 'url(./src/assets/home/featured.jpg)'
+      }
+    },
   },
   plugins: [],
 }

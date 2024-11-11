@@ -16,7 +16,8 @@
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^7.1.1",
     "react-slick": "^0.30.3",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "swiper": "^11.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
@@ -24,6 +25,7 @@
     "@types/react-dom": "^18.3.5",
     "@types/react-slick": "^0.23.13",
     "@types/slick-carousel": "^1.6.40",
+    "@types/swiper": "^5.4.3",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.17.0",
