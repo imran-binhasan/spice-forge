@@ -14,10 +14,9 @@ const Reviews = () => {
     const [reviews,setReviews] =useState([]);
     
     useEffect(()=>{
-        axios.get('/reviews.json')
+        axios.get('http://localhost:8100/api/reviews')
             .then(res => setReviews(res.data))
     },[])
-    console.log(reviews)
     return (
         <div>
             <SectionTitle subTitle='WHAT OUR CLIENT SAYS' title='TESTIMONIALS' />
