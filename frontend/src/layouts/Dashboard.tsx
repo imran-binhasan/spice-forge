@@ -2,10 +2,11 @@ import { FaBook, FaCalendar, FaCalendarCheck, FaCartArrowDown, FaHome, FaList, F
 import { FaAddressBook, FaMarsAndVenus, FaShop } from "react-icons/fa6";
 import { NavLink, Outlet } from "react-router-dom";
 import useCart from "../hooks/useCart";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
     const [cart] = useCart();
-    const isAdmin = true;
+    const [isAdmin] = useAdmin();
     return (
         <div className="flex h-screen">
             <div className="w-72 min-h-full bg-orange-400 fixed">

@@ -16,6 +16,7 @@ import Reservation from "../pages/Dashboard/Reservation/Reservation";
 import AddReview from "../pages/Dashboard/Add Review/AddReview";
 import Booking from "../pages/Dashboard/Booking/Booking";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+import AdminRoute from "./AdminRoute";
 
 
 const router = createBrowserRouter([
@@ -101,7 +102,7 @@ const router = createBrowserRouter([
       },
       {
         path:'allUsers',
-        element:<AllUsers/>
+        element:<AdminRoute><AllUsers/></AdminRoute>
       },
     ]
   }
