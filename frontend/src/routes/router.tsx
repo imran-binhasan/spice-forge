@@ -7,8 +7,14 @@ import Contact from "../pages/Contact/Contact";
 import Auth from "../layouts/Auth";
 import SignUp from "../pages/SignUp/SignUp";
 import Login from "../pages/Login/Login";
-import Dashboard from "../pages/Dashboard/Dashboard";
+
 import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../layouts/Dashboard";
+import Cart from "../pages/Dashboard/Cart/Cart";
+import User from "../pages/Dashboard/User/User";
+import Reservation from "../pages/Dashboard/Reservation/Reservation";
+import AddReview from "../pages/Dashboard/Add Review/AddReview";
+import Booking from "../pages/Dashboard/Booking/Booking";
 
 
 const router = createBrowserRouter([
@@ -50,6 +56,32 @@ const router = createBrowserRouter([
         path:'signup',
         element:<SignUp/>
       }
+    ]
+  },
+  {
+    path:'/dashboard',
+    element:<Dashboard></Dashboard>,
+    children: [
+      {
+        path:'user',
+        element:<User/>
+      },
+      {
+        path:'reservation',
+        element:<Reservation/>
+      },
+      {
+        path:'cart',
+        element:<Cart/>
+      },
+      {
+        path:'review',
+        element:<AddReview/>
+      },
+      {
+        path:'booking',
+        element:<Booking/>
+      },
     ]
   }
 ]);

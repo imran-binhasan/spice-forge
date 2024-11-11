@@ -23,7 +23,7 @@ const Header = () => {
             <NavLink to={'/contact'}>CONTACT</NavLink>
            {user?
            <>
-            <NavLink to={'/dashboard'}>DASHBOARD</NavLink>
+            <NavLink to={'/dashboard/cart'}>DASHBOARD</NavLink>
             <button  className="bg-pink-600 p-2 rounded-3xl">{cart?.length}</button>
            <button onClick={handleLogOut}>LOGOUT</button>
            </>
