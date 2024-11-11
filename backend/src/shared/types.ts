@@ -6,3 +6,9 @@ export type MenuType = {
     category: string,
     price:number
 }
+
+export type ReviewType = {
+    name:string,
+    details:string,
+    rating:number
+}
