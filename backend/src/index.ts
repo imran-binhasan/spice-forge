@@ -3,7 +3,7 @@ import cors from 'cors';
 import 'dotenv/config';
 import mongoose from 'mongoose';
 import menuCollection from './routes/menus'
-
+import reviewCollection from './routes/reviews'
 
 mongoose.connect(process.env.CONNECTION_STRING as string);
 
@@ -12,7 +12,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 app.use(cors());
 
-app.use('/api/menus', menuCollection)
+app.use('/api/menus', menuCollection);
+app.use('/api/reviews', reviewCollection )
 
 app.listen(8100, ()=> {
     console.log(`server is runnning`)
