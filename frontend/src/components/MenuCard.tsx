@@ -1,7 +1,8 @@
-import React from 'react';
 
-const MenuCard = ({menu}) => {
-    const {image, name, recipe, _Id} = menu;
+
+const MenuCard = ({eachMenu}) => {
+    const {image, name, recipe, _Id} = eachMenu;
+    
     return (
         <div className='flex flex-col'>
             <div>
