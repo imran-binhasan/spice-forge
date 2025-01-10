@@ -4,6 +4,10 @@ import Home from "../pages/Home/Home";
 import Menu from "../pages/Menu/Menu";
 import Shop from "../pages/Shop/Shop";
 import Contact from "../pages/Contact/Contact";
+import Auth from "../layouts/Auth";
+import SignUp from "../pages/SignUp/SignUp";
+import Login from "../pages/Login/Login";
+
 
 const router = createBrowserRouter([
   {
@@ -11,7 +15,7 @@ const router = createBrowserRouter([
     element: <Main />,
     children: [
       {
-        path: '/',
+        path: '',
         element: <Home />
       },
       {
@@ -28,6 +32,20 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path:'/auth',
+    element:<Auth/>,
+    children:[
+      {
+        path:'login',
+        element:<Login/>
+      },
+      {
+        path:'signup',
+        element:<SignUp/>
+      }
+    ]
+  }
 ]);
 
 export default router;
