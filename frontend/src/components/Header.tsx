@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { BiMenuAltRight } from "react-icons/bi";
 import { FaTimes } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthProvider";
 
 
 const Header = () => {
-
+    const {user, logOutUser} = useContext(AuthContext)
+    const handleLogOut = () => {
+        logOutUser()
+    }
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const navlinks =
@@ -14,7 +18,13 @@ const Header = () => {
             <NavLink to={'/menu'}>MENU</NavLink>
             <NavLink to={'/shop/salad'}>SHOP</NavLink>
             <NavLink to={'/contact'}>CONTACT</NavLink>
-            <NavLink to={'/auth/login'}>LOGIN</NavLink>
+           {user?
+           <>
+            <NavLink to={'/dashboard'}>DASHBOARD</NavLink>
+           <button onClick={handleLogOut}>LOGOUT</button>
+           </>
+           : 
+           <NavLink to={'/auth/login'}>LOGIN</NavLink>}
         </>
     return (
         <header className="fixed z-50 max-w-7xl bg-gradient-to-t from-black/20 to bg-black/20 backdrop-blur-sm w-full mx-auto text-white">

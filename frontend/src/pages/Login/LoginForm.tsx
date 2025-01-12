@@ -1,20 +1,28 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
+import { AuthContext } from '../../context/AuthProvider';
 
 const LoginForm = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
+    let from = location.state?.from?.pathname || '/';
+    const {loginUser, setUser} = useContext(AuthContext);
     const [disabled, setDisabled] = useState(true);
     const {register, handleSubmit, formState: {errors}} = useForm();
    
     useEffect(() => {
-        loadCaptchaEnginge(6); // Load a 6-character CAPTCHA
+        loadCaptchaEnginge(6); 
     }, []);
 
+    
 
     const onSubmit = (data) => {
-        console.log("Form Submitted"); // Check if this logs
-        console.log(data);
+        loginUser(data.email, data.password)
+        .then(() => {
+           navigate(from)
+        } )
     };
 
     const handleValidateCaptcha = e => {

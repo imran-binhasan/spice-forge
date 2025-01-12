@@ -1,11 +1,16 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
 
 
 const SignUpForm = () => {
    const {register, handleSubmit, formState:{ errors }} = useForm();
-   const onSubmit = (data) => console.log(data)
-   console.log(errors)
+   const {signUpUser, setUser} = useContext(AuthContext)
+   const onSubmit = (data) => {
+    signUpUser(data.email, data.password)
+    .then( ()=>{})
+   }
 
 
     return (
@@ -34,9 +39,10 @@ const SignUpForm = () => {
                     <input type="password" {...register('password',
                         {required:true,
                          minLength:6,
-                         pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{6,20}$/
+                         pattern:  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/
                          },)} name="password" placeholder="password" className="w-full p-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"/>
                          {errors.password?.type === "required" && (<p className='text-red-500 mt-1' role="alert">Password is required !</p>)}
+                         {errors.password?.type === "minLength" && (<p className='text-red-500 mt-1' role="alert">At least 6 char required</p>)}
                          {errors.password?.type === 'pattern' && (<p className='text-red-500 mt-1' role="alert">At least one uppercase one lowercase and min 6 char and max 20 char required !</p>)}
                 </div>
                 <div className="mb-4">
