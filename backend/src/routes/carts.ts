@@ -26,6 +26,22 @@ router.post('/', async(req:Request, res:Response) => {
     }catch (error){
         res.status(400).json({message:'error'})
     }
+});
+
+
+
+router.delete('/:id', async(req:Request, res:Response) => {
+    try{
+        console.log(req.params.id)
+        const result =await Carts.findByIdAndDelete({_id: req.params.id});
+        console.log(result)
+        res.status(204).send({
+            success:true,
+            message: 'deleted',
+        })
+    }catch (error){
+        res.status(400).json({message:{error}})
+    }
 })
 
 export default router;
