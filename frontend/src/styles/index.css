@@ -7,3 +7,11 @@
 *{
     font-family: "Josefin Sans", serif;
 }
+
+li .active{
+    color: white;
+}
+
+.active{
+    color: yellow
+}
