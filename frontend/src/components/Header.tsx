@@ -3,10 +3,13 @@ import { BiMenuAltRight } from "react-icons/bi";
 import { FaTimes } from "react-icons/fa";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
+import useCart from "../hooks/useCart";
 
 
 const Header = () => {
-    const {user, logOutUser} = useContext(AuthContext)
+    const [cart] = useCart();
+    console.log(cart)
+    const {user, logOutUser} = useContext(AuthContext);
     const handleLogOut = () => {
         logOutUser()
     }
@@ -21,6 +24,7 @@ const Header = () => {
            {user?
            <>
             <NavLink to={'/dashboard'}>DASHBOARD</NavLink>
+            <button  className="bg-pink-600 p-2 rounded-3xl">{cart?.length}</button>
            <button onClick={handleLogOut}>LOGOUT</button>
            </>
            : 
