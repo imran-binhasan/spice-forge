@@ -1,7 +1,8 @@
 
 import express, {Request, Response} from 'express'
 import Users from "../models/users";
-import verifyToken from '../middleware/auth';
+import verifyToken from '../middleware/verifyToken';
+import verifyAdmin from '../middleware/verifyAdmin';
 
 const router = express.Router();
 router.post('/', async (req:Request, res:Response) => {
@@ -18,10 +19,11 @@ router.post('/', async (req:Request, res:Response) => {
     }
 });
 
-router.get('/',verifyToken, async(req : Request, res:Response) => {
+router.get('/',verifyToken,verifyAdmin, async(req : Request, res:Response) => {
     const result =await Users.find();
     res.send(result)
 })
+
 
 router.delete('/:id', async(req : Request, res:Response) => {
     const result =await Users.findByIdAndDelete({_id: req.params.id})
