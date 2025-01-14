@@ -21,3 +21,9 @@ export type CartType = {
   category: string;
   price: number;
 };
+
+export type userType = {
+  name:string,
+  email:string,
+  role:string
+}

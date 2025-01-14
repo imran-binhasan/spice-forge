@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../context/AuthProvider';
+import SocialLogin from '../../components/SocialLogin';
 
 const LoginForm = () => {
     const location = useLocation();
@@ -81,6 +82,9 @@ const LoginForm = () => {
                     Login
                 </button>
             </form>
+            <div className="max-w-md mx-auto px-4 bg-white flex justify-center items-center">
+                <SocialLogin />
+            </div>
         </>
     );
 };
