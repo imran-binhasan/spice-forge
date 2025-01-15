@@ -1,8 +1,7 @@
 
 import express, {Request, Response} from 'express'
 import Users from "../models/users";
-import verifyToken from '../middleware/verifyToken';
-import verifyAdmin from '../middleware/verifyAdmin';
+import verifyToken, { verifyAdmin } from '../middleware/auth';
 
 const router = express.Router();
 router.post('/', async (req:Request, res:Response) => {
@@ -22,6 +21,16 @@ router.post('/', async (req:Request, res:Response) => {
 router.get('/',verifyToken,verifyAdmin, async(req : Request, res:Response) => {
     const result =await Users.find();
     res.send(result)
+})
+
+router.get('/admin/:email',verifyToken, async(req : Request, res:Response) => {
+
+    if(req.params.email !== req.decoded?.email){
+        res.status(403).send({message:'forbidden'})
+    }
+    const user =await Users.findOne({email:req.params.email})
+    const admin = user?.role === 'admin'
+    res.send({admin})
 })
 
 
