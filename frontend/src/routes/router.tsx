@@ -17,6 +17,7 @@ import AddReview from "../pages/Dashboard/Add Review/AddReview";
 import Booking from "../pages/Dashboard/Booking/Booking";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import AdminRoute from "./AdminRoute";
+import AddItems from "../pages/Dashboard/AddItems/AddItems";
 
 
 const router = createBrowserRouter([
@@ -84,6 +85,7 @@ const router = createBrowserRouter([
         path:'booking',
         element:<Booking/>
       },
+      // ADMIN ONLY ROUTES
       {
         path:'adminHome',
         element:<User/>
@@ -97,8 +99,8 @@ const router = createBrowserRouter([
         element:<Cart/>
       },
       {
-        path:'review',
-        element:<AddReview/>
+        path:'addItems',
+        element:<AddItems/>
       },
       {
         path:'allUsers',
